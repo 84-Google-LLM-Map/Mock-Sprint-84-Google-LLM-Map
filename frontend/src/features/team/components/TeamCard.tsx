@@ -8,7 +8,11 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
   return (
     <article className="flex min-h-[320px] flex-col items-center justify-center rounded-sm border border-zinc-700 bg-zinc-800 p-6 text-center">
       <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-zinc-200">
-        <img src={member.image} className="h-full w-full object-cover" />
+        <img
+          src={member.image ?? '/person.png'}
+          alt={member.name + ' profile'}
+          className="h-full w-full object-cover"
+        />
       </div>
 
       <div className="mt-6">
