@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import { LayoutDashboard, StickyNote, User, Settings } from 'lucide-react'
+import { LayoutDashboard, StickyNote, User, Users, Settings } from 'lucide-react'
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/team', label: 'Team', icon: Users },
   { href: '/notes', label: 'Notes', icon: StickyNote },
   { href: '/profile', label: 'Profile', icon: User },
   { href: '/settings', label: 'Settings', icon: Settings },
@@ -11,9 +12,12 @@ const navItems = [
 export function Sidebar() {
   return (
     <aside className="hidden w-60 flex-col border-r border-zinc-200 bg-white lg:flex dark:border-zinc-800 dark:bg-zinc-900">
+      {/* App title */}
       <div className="flex h-14 items-center border-b border-zinc-200 px-4 dark:border-zinc-800">
-        <span className="text-sm font-semibold">{process.env.NEXT_PUBLIC_APP_NAME ?? 'App'}</span>
+        <h1 className="text-xl font-bold tracking-tight whitespace-nowrap">Satellite Seeker</h1>
       </div>
+
+      {/* Navigation */}
       <nav className="flex-1 space-y-1 p-3">
         {navItems.map(({ href, label, icon: Icon }) => (
           <Link
